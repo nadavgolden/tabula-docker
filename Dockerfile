@@ -1,9 +1,10 @@
-FROM openjdk
+FROM openjdk:buster
 
-ENV TABULA_VERSION 1.1.1
+ARG TABULA_VERSION
 
-RUN wget -q https://github.com/tabulapdf/tabula/releases/download/v$TABULA_VERSION/tabula-jar-$TABULA_VERSION.zip && \
-    unzip tabula-jar-$TABULA_VERSION.zip && \
+ADD https://github.com/tabulapdf/tabula/releases/download/v$TABULA_VERSION/tabula-jar-$TABULA_VERSION.zip .
+
+RUN unzip tabula-jar-$TABULA_VERSION.zip && \
     rm tabula-jar-$TABULA_VERSION.zip
 
 EXPOSE 8080
