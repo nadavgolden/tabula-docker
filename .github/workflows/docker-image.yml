@@ -9,9 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: 
-      - actions/checkout@v2
-      - FranzDiebold/github-env-vars-action@v2.1.0
-
-    - name: Build the Docker image
-      run: make build VERSION=$CI_ACTION_REF_NAME
+    - name: GitHub Environment Variables Action
+      uses: FranzDiebold/github-env-vars-action@v2.1.0
+    
+    - uses: actions/checkout@v2
+      name: Build the Docker image
+      run: make build VERSION=$GITHUB_REF
