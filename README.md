@@ -17,8 +17,8 @@ You may wish to tweak the `docker run` command above in order to...
 - specify a specific version of Tabula
 
   ```
-  # Example: v0.9.3
-  docker run -d -p 8080:8080 nadavgold/tabula:0.9.3
+  # Example: v1.2.1
+  docker run -d -p 8080:8080 nadavgold/tabula:1.2.1
   ```
 
 - listen on a different port
@@ -36,14 +36,19 @@ You may wish to tweak the `docker run` command above in order to...
   docker run -p 8080:8080 nadavgold/tabula
   ```
 
+- have persistent storage
+  ```
+  docker run -d -p 8080:8080 -v /path/to/storage:/data nadavgold/tabula
+  ```
+
 You may find more options in the official [documentation](https://docs.docker.com/engine/reference/commandline/run/)
 
 ## Build your own image
 
-Instead of pulling a pre-built container image from [asnelling/tabula](https://hub.docker.com/r/asnelling/tabula/), you may build your own using the Dockerfile in this repo:
+Instead of pulling a pre-built container image from [nadavgold/tabula](https://hub.docker.com/r/nadavgold/tabula/), you may build your own using the Dockerfile in this repo:
 
 ```
 git clone git@github.com:nadavgolden/tabula-docker.git
-make run VERSION=<version>
+make build VERSION=<version>
 ```
 
